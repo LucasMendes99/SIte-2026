@@ -828,11 +828,6 @@ main .section + .section::before {
     content: none;
 }
 
-/* Remove a linha divisória automática da seção de contato */
-main .contato.section::before {
-    content: none;
-}
-
 .contato-wrap {
     position: relative;
     z-index: 1;
@@ -867,16 +862,12 @@ main .contato.section::before {
 
 .contato-field {
     display: grid;
-    gap: 8px;
+    gap: 0;
     min-width: 0;
 }
 
 .contato-field label {
-    display: inline-block;
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: var(--color-text-muted);
-    padding-left: 2px;
+    display: none;
 }
 
 .contato-field input,
@@ -1152,10 +1143,6 @@ main .contato.section::before {
         border-radius: 16px;
         padding: 16px;
         gap: 12px;
-    }
-
-    .contato-field label {
-        font-size: 0.86rem;
     }
 
     .contato-field input,
