@@ -595,9 +595,10 @@ main .section + .section::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    width: 100vw;
     height: 2px;
+    transform: translateX(-50%);
     background: linear-gradient(
         90deg,
         rgba(22, 163, 74, 0.95) 0%,
