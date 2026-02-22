@@ -828,6 +828,11 @@ main .section + .section::before {
     content: none;
 }
 
+/* Remove a linha divisória automática da seção de contato */
+main .contato.section::before {
+    content: none;
+}
+
 .contato-wrap {
     position: relative;
     z-index: 1;
@@ -1165,12 +1170,13 @@ main .section + .section::before {
     }
 
     #captchaContainer {
-        justify-content: flex-start;
+        justify-content: center;
+        overflow: hidden;
     }
 
     #captchaContainer > div {
-        transform: scale(0.92);
-        transform-origin: left top;
+        transform: scale(0.86);
+        transform-origin: center top;
     }
 
     .contato-submit {
@@ -1208,4 +1214,11 @@ main .section + .section::before {
         --node-float-mid: -4px;
     }
 
+}
+
+@media (max-width: 420px) {
+    #captchaContainer > div {
+        transform: scale(0.78);
+        transform-origin: center top;
+    }
 }
