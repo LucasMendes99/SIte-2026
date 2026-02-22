@@ -170,6 +170,8 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex: 0 0 auto;
+    width: max-content;
 }
 
 .nav-node {
@@ -195,6 +197,8 @@ h1, h2, h3 {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    flex: 0 0 auto;
+    width: max-content;
 }
 
 .nav-logo::after {
@@ -217,6 +221,7 @@ h1, h2, h3 {
     gap: 10px;
     align-items: center;
     list-style: none;
+    margin-left: auto;
 }
 
 .nav-link {
