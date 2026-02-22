@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-link');
     const typedRole = document.getElementById('typedRole');
+    const trackedSections = document.querySelectorAll('main section[id]');
 
     // ===== Efeito de digitação no Hero =====
     if (typedRole) {
@@ -114,6 +115,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ===== Link ativo no menu conforme seção visível =====
+    if (trackedSections.length && navLinks.length) {
+        const updateActiveNavLink = (sectionId) => {
+            navLinks.forEach((link) => {
+                const targetId = link.getAttribute('href');
+                link.classList.toggle('active', targetId === `#${sectionId}`);
+            });
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    updateActiveNavLink(entry.target.id);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '-45% 0px -45% 0px',
+            threshold: 0
+        });
+
+        trackedSections.forEach((section) => sectionObserver.observe(section));
+    }
+
     // Links de CTA no Hero
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -156,6 +181,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const contatoStatus = document.getElementById('contatoStatus');
     const celularInput = document.getElementById('celular');
     const captchaContainer = document.getElementById('captchaContainer');
+    const nomeInput = document.getElementById('nome');
+    const emailInput = document.getElementById('email');
+    const mensagemInput = document.getElementById('mensagem');
     let captchaWidgetId = null;
 
     function setContatoStatus(message, type = '') {
@@ -187,6 +215,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 return value;
             })
             .trim();
+    }
+
+    function setFieldError(inputEl, message) {
+        if (!inputEl) return;
+        const errorEl = document.getElementById(`erro-${inputEl.id}`);
+        inputEl.classList.toggle('input-invalid', Boolean(message));
+        inputEl.setAttribute('aria-invalid', message ? 'true' : 'false');
+        if (errorEl) {
+            errorEl.textContent = message || '';
+        }
+    }
+
+    function validateField(inputEl) {
+        if (!inputEl) return true;
+        const value = inputEl.value.trim();
+        const fieldName = inputEl.name;
+        let message = '';
+
+        if (!value) {
+            message = 'Este campo é obrigatório.';
+        } else if (fieldName === 'email') {
+            const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            if (!isValidEmail) message = 'Digite um e-mail válido.';
+        } else if (fieldName === 'celular') {
+            const digits = value.replace(/\D/g, '');
+            if (digits.length < 10) message = 'Digite um celular válido com DDD.';
+        } else if (fieldName === 'mensagem' && value.length < 20) {
+            message = 'A mensagem precisa ter pelo menos 20 caracteres.';
+        }
+
+        setFieldError(inputEl, message);
+        return message === '';
     }
 
     async function getCaptchaSiteKey() {
@@ -245,6 +305,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contatoForm) {
         const submitButton = contatoForm.querySelector('button[type="submit"]');
         const originalButtonText = submitButton ? submitButton.textContent : 'Enviar';
+        const formFields = [nomeInput, emailInput, celularInput, mensagemInput].filter(Boolean);
+
+        formFields.forEach((field) => {
+            field.addEventListener('blur', () => validateField(field));
+            field.addEventListener('input', () => {
+                if (field.classList.contains('input-invalid')) {
+                    validateField(field);
+                }
+            });
+        });
 
         ensureCaptchaReady().catch(() => {
             setContatoStatus('Não foi possível carregar o captcha agora. Recarregue a página.', 'error');
@@ -253,8 +323,9 @@ document.addEventListener('DOMContentLoaded', () => {
         contatoForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            if (!contatoForm.checkValidity()) {
-                contatoForm.reportValidity();
+            const isFormValid = formFields.every((field) => validateField(field));
+            if (!isFormValid) {
+                setContatoStatus('Revise os campos destacados antes de enviar.', 'error');
                 return;
             }
 
@@ -274,6 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (submitButton) {
                 submitButton.disabled = true;
+                submitButton.classList.add('is-loading');
                 submitButton.textContent = 'Enviando...';
             }
 
@@ -321,6 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } finally {
                 if (submitButton) {
                     submitButton.disabled = false;
+                    submitButton.classList.remove('is-loading');
                     submitButton.textContent = originalButtonText;
                 }
             }

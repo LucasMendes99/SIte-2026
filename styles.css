@@ -814,7 +814,7 @@ main .section + .section::before {
 /* ===== Contato ===== */
 .contato {
     position: relative;
-    padding: 90px 0;
+    padding: 76px 0;
     margin: 0 var(--gutter);
     width: auto;
     border-radius: 20px;
@@ -840,36 +840,44 @@ main .section + .section::before {
     font-size: 1.08rem;
     line-height: 1.6;
     max-width: 760px;
-    margin: 0 auto 36px;
+    margin: 0 auto 28px;
+}
+
+.contato .section-title {
+    margin-bottom: 24px;
 }
 
 .contato-form {
     width: min(100%, 680px);
     margin: 0 auto;
     display: grid;
-    gap: 14px;
-    padding: 22px;
+    gap: 12px;
+    padding: 24px;
     border-radius: 18px;
-    background: var(--color-bg-light);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(22, 163, 74, 0.14);
+    box-shadow: 0 16px 36px rgba(5, 46, 22, 0.08);
 }
 
 .contato-field {
     display: grid;
-    gap: 0;
+    gap: 8px;
 }
 
 .contato-field label {
-    display: none;
+    display: inline-block;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    padding-left: 2px;
 }
 
 .contato-field input,
 .contato-field textarea {
     width: 100%;
-    border: 1px solid rgba(22, 163, 74, 0.24);
+    border: 1px solid rgba(22, 163, 74, 0.32);
     border-radius: 16px;
-    background: rgba(255, 255, 255, 0.96);
+    background: #ffffff;
     color: var(--color-text);
     padding: 16px 18px;
     font-size: 1rem;
@@ -885,9 +893,23 @@ main .section + .section::before {
 
 .contato-field input:focus,
 .contato-field textarea:focus {
-    border-color: var(--color-accent-2);
+    border-color: var(--color-accent);
     background: #ffffff;
-    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.14);
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+}
+
+.contato-field input.input-invalid,
+.contato-field textarea.input-invalid {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.contato-field-error {
+    min-height: 18px;
+    font-size: 0.84rem;
+    line-height: 1.3;
+    color: #b91c1c;
+    padding-left: 4px;
 }
 
 .contato-field textarea {
@@ -908,12 +930,17 @@ main .section + .section::before {
     justify-self: center;
     background: var(--gradient-primary);
     color: #fff;
-    box-shadow: none;
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.26);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
 }
 
 .contato-submit:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 12px 26px rgba(22, 163, 74, 0.35);
+}
+
+.contato-submit.is-loading {
+    filter: saturate(0.85);
 }
 
 .contato-submit:disabled {
@@ -1101,7 +1128,7 @@ main .section + .section::before {
         margin: 0 var(--gutter);
         width: auto;
         border-radius: 16px;
-        padding: 72px 0;
+        padding: 64px 0;
     }
 
     .contato-subtitle {
@@ -1112,8 +1139,12 @@ main .section + .section::before {
     .contato-form {
         width: 100%;
         border-radius: 16px;
-        padding: 14px;
+        padding: 16px;
         gap: 12px;
+    }
+
+    .contato-field label {
+        font-size: 0.86rem;
     }
 
     .contato-field input,
@@ -1129,6 +1160,11 @@ main .section + .section::before {
 
     #captchaContainer {
         justify-content: flex-start;
+    }
+
+    #captchaContainer > div {
+        transform: scale(0.92);
+        transform-origin: left top;
     }
 
     .contato-submit {
