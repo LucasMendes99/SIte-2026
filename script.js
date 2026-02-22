@@ -193,6 +193,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (type) contatoStatus.classList.add(type);
     }
 
+    function trackAnalyticsEvent(eventName, data = {}) {
+        if (typeof window !== 'undefined' && typeof window.va === 'function') {
+            window.va('event', { name: eventName, data });
+        }
+    }
+
     function formatarCelular(input) {
         const digits = input.replace(/\D/g, '').slice(0, 11);
         if (digits.length <= 10) {
@@ -385,6 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 contatoForm.reset();
                 window.hcaptcha.reset(captchaWidgetId);
                 setContatoStatus('Mensagem enviada com sucesso. Vou te responder em breve!', 'success');
+                trackAnalyticsEvent('contato_enviado', { origem: 'formulario_site' });
             } catch (error) {
                 setContatoStatus(
                     error.message || 'Não consegui enviar agora. Tente de novo ou mande e-mail para lucas.ms2312@gmail.com.',
