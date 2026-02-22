@@ -857,11 +857,13 @@ main .section + .section::before {
     background: rgba(255, 255, 255, 0.95);
     border: 1px solid rgba(22, 163, 74, 0.14);
     box-shadow: 0 16px 36px rgba(5, 46, 22, 0.08);
+    overflow: hidden;
 }
 
 .contato-field {
     display: grid;
     gap: 8px;
+    min-width: 0;
 }
 
 .contato-field label {
@@ -874,7 +876,10 @@ main .section + .section::before {
 
 .contato-field input,
 .contato-field textarea {
+    display: block;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     border: 1px solid rgba(22, 163, 74, 0.32);
     border-radius: 16px;
     background: #ffffff;
@@ -1138,6 +1143,7 @@ main .section + .section::before {
 
     .contato-form {
         width: 100%;
+        max-width: 100%;
         border-radius: 16px;
         padding: 16px;
         gap: 12px;
