@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Desenvolvedor Full-Stack</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
+    <link rel="icon" type="image/png" sizes="any" href="favicon.png?v=2">
+    <link rel="shortcut icon" href="favicon-32.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        display: ['Clash Display', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <!-- Indicador de scroll -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Fundo animado -->
+    <div class="floating-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+    <!-- Header & Nav -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#hero" class="nav-logo">Lucas Mendes</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero section relative min-h-screen flex items-center justify-center pt-28 pb-20" id="hero">
+            <div class="container hero-layout">
+                <div class="hero-content">
+                    <h1 class="hero-title animate-on-scroll">Desenvolvedor</h1>
+                    <div class="hero-typing animate-on-scroll">
+                        <span class="typing-words">
+                            <span id="typedRole" class="gradient-text">Full-Stack</span>
+                            <span class="typing-caret" aria-hidden="true"></span>
+                        </span>
+                    </div>
+                    <p class="hero-description animate-on-scroll">
+                        <span class="hero-line">Desenvolvo designs digitais modernos e profissionais com foco em resultado.</span>
+                        <span class="hero-line">Entrego soluções completas do front-end ao back-end com muita qualidade.</span>
+                    </p>
+                    <div class="hero-cta animate-on-scroll">
+                        <a href="#projetos" class="btn btn-primary">Ver Projetos</a>
+                        <a href="#contato" class="btn btn-secondary">Entrar em Contato</a>
+                    </div>
+                </div>
+                <div class="hero-node">
+                    <img
+                        src="img/node.2.png"
+                        alt="Imagem de destaque do desenvolvedor"
+                        loading="eager"
+                        decoding="async"
+                        onerror="this.onerror=null;this.src='img/node.1.png';"
+                    />
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <div class="scroll-mouse"></div>
+            </div>
+        </section>
+
+        <!-- Sobre -->
+        <section class="sobre section" id="sobre">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">
+                    Sobre <span class="gradient-text">Mim</span>
+                </h2>
+                <div class="sobre-content animate-on-scroll">
+                    <div class="sobre-text">
+                        <p>
+                            Sou um desenvolvedor apaixonado por transformar ideias em realidade digital. 
+                            Com experiência em desenvolvimento web completo, trabalho para criar 
+                            soluções que fazem a diferença.
+                        </p>
+                        <p>
+                            Minha jornada na tecnologia me levou a dominar tanto o frontend quanto 
+                            o backend, permitindo que eu construa produtos do zero até a entrega final. 
+                            Acredito em código limpo, boas práticas e aprendizado contínuo.
+                        </p>
+                        <p>
+                            Meu objetivo é contribuir para projetos desafiadores e colaborar com 
+                            equipes que valorizam qualidade e inovação.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Habilidades -->
+        <section class="habilidades section" id="habilidades">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">
+                    Minhas <span class="gradient-text">Habilidades</span>
+                </h2>
+                <div class="skills-grid">
+                    <div class="skill-card animate-on-scroll">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 9h18M9 21V9"/>
+                            </svg>
+                        </div>
+                        <h3>Frontend</h3>
+                        <div class="skill-tags">
+                            <span><i class="devicon-react-original colored"></i>React</span>
+                            <span><i class="devicon-typescript-plain colored"></i>TypeScript</span>
+                            <span><i class="devicon-html5-plain colored"></i>HTML</span>
+                            <span><i class="devicon-css3-plain colored"></i>CSS</span>
+                            <span><i class="devicon-tailwindcss-original colored"></i>Tailwind</span>
+                        </div>
+                    </div>
+                    <div class="skill-card animate-on-scroll">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                            </svg>
+                        </div>
+                        <h3>Backend</h3>
+                        <div class="skill-tags">
+                            <span><i class="devicon-nodejs-plain colored"></i>Node.js</span>
+                            <span><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span>
+                            <span><i class="devicon-mongodb-plain colored"></i>MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="skill-card animate-on-scroll">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                        </div>
+                        <h3>Ferramentas</h3>
+                        <div class="skill-tags">
+                            <span><i class="devicon-git-plain colored"></i>Git</span>
+                            <span>
+                                <svg class="tech-icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="9" cy="5" r="4" fill="#F24E1E"/>
+                                    <circle cx="15" cy="5" r="4" fill="#A259FF"/>
+                                    <circle cx="9" cy="12" r="4" fill="#FF7262"/>
+                                    <circle cx="15" cy="12" r="4" fill="#1ABCFE"/>
+                                    <circle cx="9" cy="19" r="4" fill="#0ACF83"/>
+                                </svg>
+                                Figma
+                            </span>
+                            <span><i class="devicon-linux-plain colored"></i>Linux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos -->
+        <section class="projetos section" id="projetos">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">
+                    Projetos <span class="gradient-text">Destacados</span>
+                </h2>
+                <div class="projects-grid">
+                    <article class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span>E-commerce</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Loja Virtual Completa</h3>
+                            <p>Plataforma de e-commerce com carrinho, pagamentos e painel administrativo.</p>
+                            <div class="project-techs">
+                                <span>React</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                            <a href="#" class="project-link">Ver projeto →</a>
+                        </div>
+                    </article>
+                    <article class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span>Dashboard</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Dashboard Analytics</h3>
+                            <p>Interface de métricas e relatórios em tempo real para gestão de negócios.</p>
+                            <div class="project-techs">
+                                <span>Vue.js</span>
+                                <span>Python</span>
+                                <span>PostgreSQL</span>
+                            </div>
+                            <a href="#" class="project-link">Ver projeto →</a>
+                        </div>
+                    </article>
+                    <article class="project-card animate-on-scroll">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span>API</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>API de Autenticação</h3>
+                            <p>Sistema completo de auth com JWT, refresh tokens e integração OAuth.</p>
+                            <div class="project-techs">
+                                <span>TypeScript</span>
+                                <span>Express</span>
+                                <span>Redis</span>
+                            </div>
+                            <a href="#" class="project-link">Ver projeto →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section class="contato section" id="contato">
+            <div class="container contato-wrap">
+                <h2 class="section-title animate-on-scroll">
+                    Fala <span class="gradient-text">comigo</span>
+                </h2>
+                <p class="contato-subtitle animate-on-scroll">
+                    Me conta seu projeto e o que você precisa. Eu retorno por e-mail com a melhor proposta para te ajudar.
+                </p>
+
+                <form
+                    id="contatoForm"
+                    class="contato-form animate-on-scroll"
+                    novalidate
+                >
+                    <input type="text" name="_honey" class="contato-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                    <div class="contato-field">
+                        <label for="nome">Seu nome completo:</label>
+                        <input id="nome" name="nome" type="text" placeholder="Seu nome completo" required>
+                    </div>
+
+                    <div class="contato-field">
+                        <label for="email">Seu e-mail:</label>
+                        <input id="email" name="email" type="email" placeholder="Seu e-mail" required>
+                    </div>
+
+                    <div class="contato-field">
+                        <label for="celular">Seu celular:</label>
+                        <input id="celular" name="celular" type="tel" placeholder="Seu celular" required>
+                    </div>
+
+                    <div class="contato-field">
+                        <label for="mensagem">Sua mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" placeholder="Sua mensagem" required></textarea>
+                    </div>
+
+                    <div class="contato-field">
+                        <div id="captchaContainer"></div>
+                    </div>
+
+                    <button type="submit" class="btn contato-submit">Enviar</button>
+                    <p id="contatoStatus" class="contato-status" role="status" aria-live="polite"></p>
+                </form>
+
+                <div class="contato-links animate-on-scroll">
+                    <a href="mailto:lucas.ms2312@gmail.com" class="contato-icon-link" aria-label="Enviar e-mail para Lucas Mendes" title="E-mail">
+                        <div class="contato-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <a href="https://github.com/LucasMendes99" target="_blank" rel="noopener" class="contato-icon-link" aria-label="Abrir GitHub de Lucas Mendes" title="GitHub">
+                        <div class="contato-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/lucas-m-65817a107/" target="_blank" rel="noopener" class="contato-icon-link" aria-label="Abrir LinkedIn de Lucas Mendes" title="LinkedIn">
+                        <div class="contato-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <a href="https://t.me/seu_usuario" target="_blank" rel="noopener" class="contato-icon-link" aria-label="Abrir Telegram de Lucas Mendes" title="Telegram">
+                        <div class="contato-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M9.04 15.47 8.9 19.9c.29 0 .42-.12.58-.27l2.12-2.03 4.4 3.22c.81.45 1.38.21 1.6-.75l2.9-13.6h0c.26-1.2-.43-1.67-1.22-1.38L2.2 11.43c-1.17.46-1.15 1.11-.2 1.4l4.35 1.36L16.4 7.8c.47-.29.9-.13.55.18"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 - Lucas Mendes. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
